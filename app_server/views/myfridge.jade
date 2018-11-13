@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  #banner.page-header
+    .row
+      .col-lg-6
+        h1= title
+  .row
+    .col-xs-12.col-sm-12.col-md-12
+      .error= message
+      .row.list-group
+        each food in foods
+          .col-md-8.list-group-item
+            .row
+              .col-xs-10
+                h4 
+                  h4
+                    a.food_link(href="addInMyFridge/#{food._id}")= food.name
+                    small &nbsp;
+              .col-xs-2
+                a.btn.btn-sm.btn-success(href="/food/delete/#{food._id}") Delete
+                
+            .row
+              .col-sm-3
+                h4 Date
+                p.date= food.date
+              .col-sm-3
+                h4 Quantity
+                p= food.quantity
+              if food.expiry
+                .col-sm-3
+                  h4 Expiry Date
+                  p= food.expiry
+              .col-sm-3
+                h4 Left Overs
+                p= food.left_overs

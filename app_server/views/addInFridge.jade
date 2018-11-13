@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  .row.page-header
+    .col-lg-12
+      h1= title
+  .row
+    .col-md-8
+      form.form-horizontal(action="", method="post", role="form")
+          .form-group
+            label.col-xs-10.col-sm-2.control-label(for="name") Name
+            .col-xs-12.col-sm-6
+              input#name.form-control(name="name" required="true" value=food.name)
+          .form-group
+            label.col-xs-10.col-sm-2.control-label(for="date") Date
+            .col-xs-12.col-sm-6
+              input#date.form-control(name="date" type="date" required="true" value=food.date)
+          .form-group
+            label.col-xs-10.col-sm-2.control-label(for="expiry") Expiry Date
+            .col-xs-12.col-sm-6
+              input#date.form-control(name="expiry" type="date" value=food.expiry)
+          .form-group
+            label.col-xs-10.col-sm-2.control-label(for="left_overs") Left Overs
+            .col-xs-12.col-sm-1
+              input#left_overs.form-control(name="left_overs" type="checkbox" checked=food.left_overs)
+          .form-group
+            label.col-xs-10.col-sm-2.control-label(for="quantity") Quantity
+            .col-xs-12.col-sm-6
+              input#quantity.form-control(name="quantity" type="number" value=food.quantity min="1")
+          .form-group
+            .col-xs-10.col-sm-6
+              if create
+                button.btn.btn-success.pull-right Create
+              else  
+                button.btn.btn-success.pull-right Update
